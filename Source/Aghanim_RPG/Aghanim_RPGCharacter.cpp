@@ -55,6 +55,7 @@ AAghanim_RPGCharacter::AAghanim_RPGCharacter()
 	upgradePoints = 3;
 	canLevel = false;
 	openInventory = false;
+	hasAttacked = false;
 	xp = 40.0f;
 	xpToLevelUp = 100.0f;
 
@@ -164,7 +165,7 @@ void AAghanim_RPGCharacter::stopSprint()
 
 void AAghanim_RPGCharacter::dealDamage()
 {
-
+	hasAttacked = true;
 }
 
 void AAghanim_RPGCharacter::onLevelUp()
@@ -214,6 +215,11 @@ void AAghanim_RPGCharacter::calculateStats()
 	mana = maxMana;
 	stamina = maxStamina;
 	armor = 1.0f * agility;
+}
+
+void  AAghanim_RPGCharacter::takeDamage(float damageAmount)
+{
+	health -= damageAmount;
 }
 
 void AAghanim_RPGCharacter::toggleInventory()

@@ -81,6 +81,9 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Stats")
 		int damage;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Stats")
+		bool hasAttacked;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Health")
 		float health;
 
@@ -106,16 +109,19 @@ protected:
 
 
 
-	/*
-	UFUNCTION(BlueprintCallable, Category = "Health")
+	
+	UFUNCTION(BlueprintCallable, Category = "Attack")
 		void takeDamage(float damageAmount);
 
+	UFUNCTION(BlueprintCallable, Category = "Attack")
+		void dealDamage();
+	/*
 	UFUNCTION(BlueprintCallable, Category = "Health")
 		void heal(float healAmount);
-		*/
+		
 	UFUNCTION(BlueprintCallable, Category = "Stats")
 		void dealDamage();
-
+	*/
 	UFUNCTION(BlueprintCallable, Category = "Health")
 		void sprint();
 
