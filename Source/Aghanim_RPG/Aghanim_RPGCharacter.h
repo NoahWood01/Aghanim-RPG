@@ -58,10 +58,13 @@ protected:
 		bool canLevel;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Stats")
-		int xp;
+		bool openInventory;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Stats")
-		int xpToLevelUp;
+		float xp;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Stats")
+		float xpToLevelUp;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Stats")
 		int upgradePoints;
@@ -85,10 +88,16 @@ protected:
 		float mana;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Health")
+		float stamina;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Health")
 		float maxHealth;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Health")
 		float maxMana;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Health")
+		float maxStamina;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Health")
 		float armor;
@@ -125,9 +134,11 @@ protected:
 	UFUNCTION(BlueprintCallable, Category = "Stats")
 		void addStatIntelligence();
 
-
 	UFUNCTION(BlueprintCallable, Category = "Stats")
 		void calculateStats();
+
+	UFUNCTION(BlueprintCallable, Category = "Stats")
+		void toggleInventory();
 
 
 

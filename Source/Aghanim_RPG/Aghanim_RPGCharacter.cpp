@@ -54,8 +54,9 @@ AAghanim_RPGCharacter::AAghanim_RPGCharacter()
 	level = 1;
 	upgradePoints = 3;
 	canLevel = false;
-	xp = 0;
-	xpToLevelUp = 100;
+	openInventory = false;
+	xp = 40.0f;
+	xpToLevelUp = 100.0f;
 
 	strength = 10;
 	agility = 10;
@@ -79,6 +80,8 @@ void AAghanim_RPGCharacter::SetupPlayerInputComponent(class UInputComponent* Pla
 	PlayerInputComponent->BindAction("Sprint", IE_Released, this, &AAghanim_RPGCharacter::stopSprint);
 
 	PlayerInputComponent->BindAction("Attack", IE_Pressed, this, &AAghanim_RPGCharacter::dealDamage);
+
+	PlayerInputComponent->BindAction("Inventory", IE_Pressed, this, &AAghanim_RPGCharacter::toggleInventory);
 
 	PlayerInputComponent->BindAxis("Move Forward / Backward", this, &AAghanim_RPGCharacter::MoveForward);
 	PlayerInputComponent->BindAxis("Move Right / Left", this, &AAghanim_RPGCharacter::MoveRight);
@@ -205,8 +208,15 @@ void  AAghanim_RPGCharacter::addStatIntelligence()
 void AAghanim_RPGCharacter::calculateStats()
 {
 	maxHealth = 10.0f * strength;
+	maxStamina = 5.0f * agility;
 	maxMana = 5.0f * intelligence;
 	health = maxHealth;
 	mana = maxMana;
+	stamina = maxStamina;
 	armor = 1.0f * agility;
+}
+
+void AAghanim_RPGCharacter::toggleInventory()
+{
+	openInventory = !openInventory;
 }
