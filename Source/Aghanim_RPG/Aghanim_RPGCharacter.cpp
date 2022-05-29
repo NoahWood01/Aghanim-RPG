@@ -59,6 +59,8 @@ AAghanim_RPGCharacter::AAghanim_RPGCharacter()
 	xp = 40.0f;
 	xpToLevelUp = 100.0f;
 
+
+	damage = 10.0f;
 	strength = 10;
 	agility = 10;
 	intelligence = 10;
