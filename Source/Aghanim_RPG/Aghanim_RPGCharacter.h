@@ -4,7 +4,9 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "Weapons/BaseWeapon.h"
 #include "Aghanim_RPGCharacter.generated.h"
+
 
 UCLASS(config = Game)
 class AAghanim_RPGCharacter : public ACharacter
@@ -79,7 +81,13 @@ protected:
 		int intelligence;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Stats")
+		int baseDamage;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Stats")
 		int damage;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Stats")
+		float attackSpeed;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Stats")
 		bool hasAttacked;
@@ -105,6 +113,9 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Health")
 		float armor;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory")
+		ABaseWeapon* currentWeapon;
+
 protected:
 
 
@@ -121,6 +132,9 @@ protected:
 		
 	UFUNCTION(BlueprintCallable, Category = "Stats")
 		void dealDamage();
+
+		UFUNCTION(BlueprintCallable, Category = "Stats")
+		bool is();
 	*/
 	UFUNCTION(BlueprintCallable, Category = "Health")
 		void sprint();
@@ -145,6 +159,11 @@ protected:
 
 	UFUNCTION(BlueprintCallable, Category = "Stats")
 		void toggleInventory();
+
+	UFUNCTION(BlueprintCallable, Category = "Inventory")
+		void updateWeapon();
+
+	
 
 
 

@@ -59,11 +59,15 @@ AAghanim_RPGCharacter::AAghanim_RPGCharacter()
 	xp = 40.0f;
 	xpToLevelUp = 100.0f;
 
-
-	damage = 10.0f;
+	baseDamage = 10.0f;
+	
 	strength = 10;
 	agility = 10;
 	intelligence = 10;
+
+	attackSpeed = 1.0f;
+
+	//currentWeapon = nullptr;
 
 	calculateStats();
 
@@ -217,6 +221,7 @@ void AAghanim_RPGCharacter::calculateStats()
 	mana = maxMana;
 	stamina = maxStamina;
 	armor = 1.0f * agility;
+	damage = baseDamage;
 }
 
 void  AAghanim_RPGCharacter::takeDamage(float damageAmount)
@@ -227,4 +232,9 @@ void  AAghanim_RPGCharacter::takeDamage(float damageAmount)
 void AAghanim_RPGCharacter::toggleInventory()
 {
 	openInventory = !openInventory;
+}
+
+void AAghanim_RPGCharacter::updateWeapon()
+{
+	damage = currentWeapon->damage;
 }
