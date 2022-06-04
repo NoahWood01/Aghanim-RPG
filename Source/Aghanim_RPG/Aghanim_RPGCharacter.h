@@ -81,10 +81,16 @@ protected:
 		int intelligence;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Stats")
-		int baseDamage;
+		float baseDamage;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Stats")
-		int damage;
+		float damage;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Stats")
+		float baseSpellAmp;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Stats")
+		float spellAmp;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Stats")
 		float attackSpeed;

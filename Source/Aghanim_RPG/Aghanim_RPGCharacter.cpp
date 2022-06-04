@@ -67,6 +67,8 @@ AAghanim_RPGCharacter::AAghanim_RPGCharacter()
 
 	attackSpeed = 1.0f;
 
+	baseSpellAmp = 1.0f;
+
 	//currentWeapon = nullptr;
 
 	calculateStats();
@@ -221,7 +223,11 @@ void AAghanim_RPGCharacter::calculateStats()
 	mana = maxMana;
 	stamina = maxStamina;
 	armor = 1.0f * agility;
+	baseDamage = 1.5 * strength;
 	damage = baseDamage;
+	spellAmp = baseSpellAmp + 0.1 * intelligence;
+	attackSpeed = 1.0f - 0.01 * agility;
+	//damage += currentWeapon->damage;
 }
 
 void  AAghanim_RPGCharacter::takeDamage(float damageAmount)
@@ -236,5 +242,5 @@ void AAghanim_RPGCharacter::toggleInventory()
 
 void AAghanim_RPGCharacter::updateWeapon()
 {
-	damage = currentWeapon->damage;
+	//damage = currentWeapon->damage;
 }

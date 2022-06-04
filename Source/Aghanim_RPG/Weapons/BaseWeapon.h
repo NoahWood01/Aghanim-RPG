@@ -29,7 +29,7 @@ public:
 		int levelRequirement;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Weapon")
-		int damage;
+		float damage;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Weapon")
 		float baseSpeed;
