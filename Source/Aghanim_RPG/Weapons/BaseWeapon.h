@@ -1,9 +1,10 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Copyright (c) 2022 Noah Wood
 
 #pragma once
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "Aghanim_RPG/Items/DefaultItem.h"
 #include "BaseWeapon.generated.h"
 
 
@@ -17,7 +18,7 @@ enum class EWeaponType : uint8
 };
 
 UCLASS()
-class AGHANIM_RPG_API ABaseWeapon : public AActor
+class AGHANIM_RPG_API ABaseWeapon : public ADefaultItem
 {
 	GENERATED_BODY()
 	

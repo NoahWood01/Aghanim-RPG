@@ -1,4 +1,5 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
+// Copyright (c) 2022 Noah Wood
 
 #include "Aghanim_RPGCharacter.h"
 #include "Camera/CameraComponent.h"
