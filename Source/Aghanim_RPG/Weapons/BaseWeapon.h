@@ -18,7 +18,7 @@ enum class EWeaponType : uint8
 };
 
 UCLASS()
-class AGHANIM_RPG_API ABaseWeapon : public ADefaultItem
+class AGHANIM_RPG_API ABaseWeapon : public AActor
 {
 	GENERATED_BODY()
 	

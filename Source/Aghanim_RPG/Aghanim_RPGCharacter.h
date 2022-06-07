@@ -8,6 +8,18 @@
 #include "Weapons/BaseWeapon.h"
 #include "Aghanim_RPGCharacter.generated.h"
 
+USTRUCT(BlueprintType)
+struct FInventory
+{
+	GENERATED_BODY()
+
+		UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float maxWeight;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		TArray<ADefaultItem*> itemList;
+
+};
 
 UCLASS(config = Game)
 class AAghanim_RPGCharacter : public ACharacter
@@ -123,10 +135,16 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory")
 		ABaseWeapon* currentWeapon;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory")
+		FInventory inventory;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory")
+		bool isOverlappingItem;
+
 protected:
 
-
-
+	UFUNCTION(BlueprintCallable, Category = "Inventory")
+	void eqiupItemToInv();
 	
 	UFUNCTION(BlueprintCallable, Category = "Attack")
 		void takeDamage(float damageAmount);
@@ -170,8 +188,8 @@ protected:
 	UFUNCTION(BlueprintCallable, Category = "Inventory")
 		void updateWeapon();
 
-	
-
+	UFUNCTION(BlueprintCallable, Category = "Inventory")
+		void addToInventory(ADefaultItem* _item);
 
 
 

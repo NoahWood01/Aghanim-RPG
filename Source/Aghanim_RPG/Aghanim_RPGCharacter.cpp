@@ -12,6 +12,7 @@
 //////////////////////////////////////////////////////////////////////////
 // AAghanim_RPGCharacter
 
+
 AAghanim_RPGCharacter::AAghanim_RPGCharacter()
 {
 	// Set size for collision capsule
@@ -57,6 +58,8 @@ AAghanim_RPGCharacter::AAghanim_RPGCharacter()
 	canLevel = false;
 	openInventory = false;
 	hasAttacked = false;
+	isOverlappingItem = false;
+	
 	xp = 40.0f;
 	xpToLevelUp = 100.0f;
 
@@ -69,6 +72,8 @@ AAghanim_RPGCharacter::AAghanim_RPGCharacter()
 	attackSpeed = 1.0f;
 
 	baseSpellAmp = 1.0f;
+
+	inventory.maxWeight = 100.0f;
 
 	//currentWeapon = nullptr;
 
@@ -92,6 +97,7 @@ void AAghanim_RPGCharacter::SetupPlayerInputComponent(class UInputComponent* Pla
 	PlayerInputComponent->BindAction("Attack", IE_Pressed, this, &AAghanim_RPGCharacter::dealDamage);
 
 	PlayerInputComponent->BindAction("Inventory", IE_Pressed, this, &AAghanim_RPGCharacter::toggleInventory);
+	PlayerInputComponent->BindAction("Equip", IE_Pressed, this, &AAghanim_RPGCharacter::eqiupItemToInv);
 
 	PlayerInputComponent->BindAxis("Move Forward / Backward", this, &AAghanim_RPGCharacter::MoveForward);
 	PlayerInputComponent->BindAxis("Move Right / Left", this, &AAghanim_RPGCharacter::MoveRight);
@@ -244,4 +250,18 @@ void AAghanim_RPGCharacter::toggleInventory()
 void AAghanim_RPGCharacter::updateWeapon()
 {
 	//damage = currentWeapon->damage;
+}
+
+void AAghanim_RPGCharacter::addToInventory(ADefaultItem* _item)
+{
+	if(_item)
+		inventory.itemList.Add(_item);
+}
+
+void AAghanim_RPGCharacter::eqiupItemToInv()
+{
+	if (isOverlappingItem)
+	{
+		UE_LOG(LogTemp, Warning,TEXT("picked up item"));
+	}
 }

@@ -10,7 +10,7 @@ ABaseWeapon::ABaseWeapon()
 	PrimaryActorTick.bCanEverTick = true;
 
 	levelRequirement = 1;
-	weight = 1.0f;
+	//weight = 1.0f;
 	damage = 15.0f;
 	baseSpeed = 1.0f;
 	weaponType = EWeaponType::E_Default;
