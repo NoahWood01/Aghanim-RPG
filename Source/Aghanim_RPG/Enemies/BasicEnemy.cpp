@@ -43,9 +43,20 @@ void ABasicEnemy::takeDamage(float damageAmount)
 		health -= damageAmount;
 
 		if (health <= 0.0f)
+		{
 			dead = true;
+		}	
 		else
+		{
 			takenDamage = true;
+		}		
 	}
 }
+
+void ABasicEnemy::die()
+{
+	dead = true;
+	//notifyDeath();
+}
+
 

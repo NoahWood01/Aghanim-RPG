@@ -60,7 +60,15 @@ public:
 		FString description;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		bool isComplete;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		int numRequired;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		int objectiveID;
+
+
 };
 
 UCLASS(BlueprintType)
@@ -75,10 +83,22 @@ public:
 		void setQuestDetails(FString _name, FString _description);
 
 	UFUNCTION(BlueprintCallable)
-		void setUpObjective(int _objectiveNum, TSubclassOf<ABasicEnemy> _enemy, TSubclassOf<ADefaultItem> _item, FString _description, int _numRequired);
+		void setUpObjective(int _objectiveNum, TSubclassOf<ABasicEnemy> _enemy, TSubclassOf<ADefaultItem> _item, FString _description1, FString _description2, int _numRequired);
 
 	UFUNCTION(BlueprintCallable)
 		void setNumObjective(int _numObjectives);
+
+	UFUNCTION(BlueprintCallable)
+		void updateQuest();
+
+	UFUNCTION(BlueprintCallable)
+		void updateObjective(int _objectiveNum, int _updateValue);
+
+	UFUNCTION(BlueprintCallable)
+		void finishObjective(int _objectiveNum);
+
+	UFUNCTION(BlueprintCallable)
+		void finishQuest();
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		FString name;

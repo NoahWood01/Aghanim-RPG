@@ -35,6 +35,12 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Enemy)
 		bool dead;
 
+	UFUNCTION(BlueprintCallable)
+		void die();
+
+	UFUNCTION(BlueprintImplementableEvent)
+		void notifyDeath();
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
